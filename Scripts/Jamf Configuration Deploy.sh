@@ -10,8 +10,6 @@ fi
 currentConfFile=""
 expectedConfigHash="$4"
 
-oldPid=$(/usr/local/bin/osqueryctl status | /usr/bin/awk '{print $NF}')
-
 /usr/local/bin/osqueryctl stop
 
 echo "$currentConfFile" | /usr/bin/base64 -D > "/var/osquery/osquery.conf"
