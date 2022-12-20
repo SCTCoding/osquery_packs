@@ -45,6 +45,7 @@ if [[ ! -z "$runStatus" ]]
 then
 	echo "osquery is broken now. osquery did not start"
 	exit 1
+fi
 
 queryResult=$(/usr/local/bin/osqueryi --line 'select config_hash, config_valid from osquery_info;')
 configHash=$(echo "$queryResult" | /usr/bin/grep "config_hash" | /usr/bin/awk '{print $NF}' | /usr/bin/xargs)
